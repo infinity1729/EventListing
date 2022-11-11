@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% block title %}Absense User List{% endblock title %}
+{% block breadcrumb %}Absense User List{% endblock breadcrumb %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Liste d'absence</h5>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-success" href="{% url 'event-create' %}">Créer événement</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>                  
+                          <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Utilisateur</th>
+                            <th>Evénement</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for absenseuser in absenseuser %}
+                                <tr role="row">
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ absenseuser.user }}</td>
+                                    <td>{{ absenseuser.event }}</td>
+                                    <td>{{ absenseuser.status }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
