@@ -3,11 +3,13 @@ import Events from './Events';
 import Header from './Header';
 import styled from 'styled-components';
 
-function Right() {
+function Right(props) {
   return (
     <Container>
         <Header />
-        <Events />
+        <Events 
+          eventList={props.eventList}
+        />
     </Container>
   );
 }

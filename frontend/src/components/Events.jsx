@@ -1,51 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-
-function Events() {
-
-    const eventList = [
-        {
-          id: 1,
-          title: "Overnight Hackathon",
-          description: "desc",
-          type: "open",
-          date: "10 Dec",
-          imgref: "https://picsum.photos/200"
-        },
-      
-        {
-            id: 1,
-            title: "Overnight Hackathon",
-            description: "desc",
-            type: "open",
-            date: "10 Dec",
-            imgref: "https://picsum.photos/200"
-          },
-      
-          {
-            id: 1,
-            title: "Overnight Hackathon",
-            description: "desc",
-            type: "open",
-            date: "10 Dec",
-            imgref: "https://picsum.photos/200"
-          },
-      ];
-
-
-    
-
-
-
+function Events(props){
+  console.log(props.eventList);
   return (
     <Container>
-        {eventList.map( (event) => {
+        {props.eventList.map( (event) => {
+            console.log(event);
             return (
                 <Card 
-                    date = {event.date}
-                    title = {event.title}
-                    description = {event.description}
+                date = {event.start_date}
+                title = {event.name}
+                description = {event.description}
                 />
             );
         })};    
