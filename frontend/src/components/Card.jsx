@@ -12,6 +12,7 @@ import Time from './Time';
 
 
 function Card(props) {
+    console.log(props);
   return (
     <Cont>
 
@@ -22,6 +23,7 @@ function Card(props) {
             <Container>
                 <Date>{props.date}</Date>
                 <Info>{props.title}</Info>
+                <Description>{props.description}</Description>
                 <Time />
                 <Button />
             </Container>
@@ -78,6 +80,15 @@ const Date = styled.div`
 `;
 
 const Info = styled.div`
+    display: flex;
+    width:45%;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+`;
+
+const Description = styled.div`
     display: flex;
     width:45%;
     justify-content: center;

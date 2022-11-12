@@ -6,7 +6,6 @@ function Events(props){
   return (
     <Container>
         {props.eventList.map( (event) => {
-            console.log(event);
             return (
                 <Card 
                 date = {event.start_date}
