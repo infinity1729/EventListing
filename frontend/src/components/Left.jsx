@@ -5,10 +5,10 @@ import ClubList from './ClubList';
 
 function Left() {
   return (
-    <Container>
-        <LogoPage />
-        <ClubList />
-    </Container>
+      <Container>
+          <LogoPage />
+          <ClubList />
+      </Container>
   );
 }
 

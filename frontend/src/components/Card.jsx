@@ -7,10 +7,6 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Time from './Time';
 
-
-
-
-
 function Card(props) {
     console.log(props);
   return (
@@ -23,13 +19,13 @@ function Card(props) {
             <Container>
                 <Date>{props.date}</Date>
                 <Info>{props.title}</Info>
-                <Description>{props.description}</Description>
+                
                 <Time />
                 <Button />
             </Container>
         </AccordionSummary>
         <AccordionDetails>
-                Already Enrolled
+            {props.description}
         </AccordionDetails>
       </Accordion>
 

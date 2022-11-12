@@ -5,7 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Host(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    code = models.CharField(max_length=6, unique=True)
+    code = models.CharField(max_length=255, primary_key=True)
     priority = models.IntegerField(unique=True)
     created_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='created_user')
     updated_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='updated_user')
