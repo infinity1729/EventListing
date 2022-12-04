@@ -47,9 +47,6 @@ npm audit
 ### ⬇️ Migrate backend models
 
 ```bash
-cd ..
-```
-```bash
 cd backend
 ```
 ```bash
