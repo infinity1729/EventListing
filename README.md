@@ -19,7 +19,9 @@ Please change the directory after cloning the repository using the `cd <folder-n
 >**Note:** Please do not remove the `.env.development` file from the root folder. It contains all the evironment variables required for development.
 
 ### ⬇️ Install backend requirements
-
+```bash
+cd backend
+```
 ```bash
 pip install pipenv
 ```
@@ -27,7 +29,7 @@ pip install pipenv
 pipenv shell
 ```
 ```bash
-pipenv install
+pipenv install -r requirements.txt
 ```
 
 ### ⬇️ Install frontend dependencies
