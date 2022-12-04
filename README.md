@@ -7,7 +7,7 @@ audience for this project are college students for whom it becomes very difficul
 
 ## 🏗️ How to Set up `EventListing` for Development?
 
-Here is a quick overview of the `react-play` repo setup:
+Here is a quick overview of the `EventListing` repo setup:
 
 ### 🍴 Fork and Clone the Repo 
 First, you need to fork the `EventListing` repo. You can do this by clicking the `Fork` button on the top right corner of the repo. If you are new to forking, please watch this [YouTube Guide](https://www.youtube.com/watch?v=h8suY-Osn8Q) to get started.
