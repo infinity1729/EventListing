@@ -18,7 +18,8 @@ function Card(props) {
         >
             <Container>
                 <Date>{props.date}</Date>
-                <Info>{props.title}</Info>
+                <Info>{props.title} by {props.club}</Info>
+                
                 
                 <Time />
                 <Button />
@@ -79,8 +80,10 @@ const Info = styled.div`
     display: flex;
     width:45%;
     justify-content: center;
+    flex-direction:horizontal;
+    padding:2%;
     align-items: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
 `;
 
