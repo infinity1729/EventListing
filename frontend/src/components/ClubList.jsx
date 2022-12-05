@@ -108,7 +108,7 @@ function ClubList() {
                         } label={club} />
                     </SFormGroup>
                 );
-            })};
+            })}
         </Container>
     );
 }
