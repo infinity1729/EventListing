@@ -65,6 +65,7 @@ function Events() {
                     date = {dateConverter(event.start_date) }
                     title = {event.name}
                     description = {event.description}
+                    club={event.host}
                 />
             );
         })};    
