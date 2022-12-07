@@ -1,0 +1,14 @@
+.Image_class {
+    width: 50%;
+    height: 100px;
+    border: 10px;
+    left: 0px;
+    top: 0px;
+}
+.Card_class{
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    border: transparent;
+    border-radius: 10px;
+}

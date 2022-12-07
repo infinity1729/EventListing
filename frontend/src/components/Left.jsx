@@ -16,4 +16,5 @@ export default Left;
 
 const Container = styled.div`
     width: 30%;
+    height: 100%;
 `;

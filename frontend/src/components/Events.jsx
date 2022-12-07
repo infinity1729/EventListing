@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
-import Card from './Card';
+import ACard from './Card';
 import { ElistContext } from './ElistContext';
 
 
@@ -19,40 +19,40 @@ function Events() {
         res += " ";
         let mnth = (date[5] + date[6]);
         if(mnth === "01"){
-            return (res + "Jan"); 
+            return [res,"Jan"]; 
         }
         if(mnth === "02"){
-            return (res + "Feb"); 
+            return [res,"Feb"]; 
         }
         if(mnth === "03"){
-            return (res + "Mar"); 
+            return [res,"Mar"]; 
         }
         if(mnth === "04"){
-            return (res + "Apr"); 
+            return [res,"Apr"]; 
         }
         if(mnth === "05"){
-            return (res + "May"); 
+            return [res,"May"]; 
         }
         if(mnth === "06"){
-            return (res + "June"); 
+            return [res,"June"]; 
         }
         if(mnth === "07"){
-            return (res + "July"); 
+            return [res,"July"]; 
         }
         if(mnth === "08"){
-            return (res + "Aug"); 
+            return [res,"Aug"]; 
         }
         if(mnth === "09"){
-            return (res + "Sept"); 
+            return [res,"Sept"]; 
         }
         if(mnth === "10"){
-            return (res + "Oct"); 
+            return [res,"Oct"]; 
         }
         if(mnth === "11"){
-            return (res + "Nov"); 
+            return [res,"Nov"]; 
         }
         if(mnth === "12"){
-            return (res + "Dec"); 
+            return [res,"Dec"]; 
         }
     }
 
@@ -61,7 +61,7 @@ function Events() {
     <Container>
         {eventList.map( (event) => {
             return (
-                <Card 
+                <ACard 
                     date = {dateConverter(event.start_date) }
                     title = {event.name}
                     description = {event.description}
