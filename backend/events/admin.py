@@ -4,13 +4,10 @@ from django.contrib import admin
 from .models import (
     Host,
     Event,
-    EventMember,
-    EventUserWishList,
-    UserCoin,
 )
 
 admin.site.register(Host)
 admin.site.register(Event)
-admin.site.register(EventMember)
-admin.site.register(EventUserWishList)
-admin.site.register(UserCoin)
+# admin.site.register(EventMember)
+# admin.site.register(EventUserWishList)
+# admin.site.register(UserCoin)

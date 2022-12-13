@@ -18,15 +18,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import (
     Host,
     Event,
-    EventMember,
-    EventUserWishList,
-    UserCoin,
+    # EventMember,
+    # EventUserWishList,
+    # UserCoin,
     EventImage,
-    EventAgenda
+    # EventAgenda
 
 )
 
-from .forms import EventForm, EventImageForm, EventAgendaForm, EventCreateMultiForm
+from .forms import EventForm, EventImageForm, EventCreateMultiForm #, EventAgendaForm
 
 #ToDo
 
@@ -151,7 +151,7 @@ class EventDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'events/delete_event.html'
     success_url = reverse_lazy('event-list')
 
-
+'''
 class AddEventMemberCreateView(LoginRequiredMixin, CreateView):
     login_url = 'login'
     model = EventMember
@@ -202,7 +202,7 @@ class RemoveEventUserWishDeleteView(LoginRequiredMixin, DeleteView):
     model = EventUserWishList
     template_name = 'events/remove_event_user_wish.html'
     success_url = reverse_lazy('event-wish-list')
-
+'''
 
 class UpdateEventStatusView(LoginRequiredMixin, UpdateView):
     login_url = 'login'
@@ -220,7 +220,7 @@ class CompleteEventList(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Event.objects.filter(status='completed')
 
-
+'''
 class AbsenseUserList(LoginRequiredMixin, ListView):
     login_url = 'login'
     model = EventMember
@@ -258,7 +258,7 @@ class UserMarkList(LoginRequiredMixin, ListView):
     model = UserCoin
     template_name = 'events/user_mark_list.html'
     context_object_name = 'usermark'
-
+'''
 
 @login_required(login_url='login')
 def search_host(request):

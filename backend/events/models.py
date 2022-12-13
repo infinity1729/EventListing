@@ -43,7 +43,7 @@ class EventImage(models.Model):
     event = models.OneToOneField(Event, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='event_image/')
 
-class EventAgenda(models.Model):
+'''class EventAgenda(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     session_name = models.CharField(max_length=120)
     speaker_name = models.CharField(max_length=120)
@@ -136,3 +136,4 @@ class UserCoin(models.Model):
     
     def get_absolute_url(self):
         return reverse('user-mark')
+'''
