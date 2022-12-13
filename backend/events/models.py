@@ -4,22 +4,7 @@ from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class Host(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-    code = models.CharField(max_length=255, primary_key=True)
-    priority = models.IntegerField(unique=True)
-    created_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='created_user')
-    updated_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='updated_user')
-    created_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now_add=True)
-    status_choice = (
-        ('disabled', 'Disabled'),
-        ('active', 'Active'),
-        ('deleted', 'Deleted'),
-        ('blocked', 'Blocked'),
-        ('completed', 'Completed'),
-    )
-    status = models.CharField(choices=status_choice, max_length=10)
-
+    name = models.CharField(max_length=255, primary_key=True)
     def __str__(self):
         return self.name
     
@@ -29,28 +14,16 @@ class Host(models.Model):
 class Event(models.Model):
     host = models.ForeignKey(Host, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, unique=True)
-    uid = models.PositiveIntegerField(unique=True)
+    uid = models.PositiveIntegerField(primary_key=True)
     description = RichTextUploadingField()
-    select_scheduled_status = (
-        ('yet to scheduled', 'Yet to Scheduled'),
-        ('scheduled', 'Scheduled')
-    )
-    scheduled_status = models.CharField(max_length=25, choices=select_scheduled_status)
     venue = models.CharField(max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()
     # location = LocationField()
-    created_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, blank=True, null=True, related_name='event_created_user')
-    updated_user = models.ForeignKey('auth.User', on_delete=models.CASCADE, blank=True, null=True, related_name='event_updated_user')
     created_date = models.DateField(auto_now_add=True)
-    updated_date = models.DateField(auto_now_add=True)
     status_choice = (
-        ('disabled', 'Disabled'),
         ('active', 'Active'),
-        ('deleted', 'Deleted'),
-        ('time out', 'Time Out'),
         ('completed', 'Completed'),
-        ('cancel', 'Cancel'),
     )
     status = models.CharField(choices=status_choice, max_length=10)
 
@@ -70,7 +43,7 @@ class EventImage(models.Model):
     event = models.OneToOneField(Event, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='event_image/')
 
-class EventAgenda(models.Model):
+'''class EventAgenda(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     session_name = models.CharField(max_length=120)
     speaker_name = models.CharField(max_length=120)
@@ -163,3 +136,4 @@ class UserCoin(models.Model):
     
     def get_absolute_url(self):
         return reverse('user-mark')
+'''
