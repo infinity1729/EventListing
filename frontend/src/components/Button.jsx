@@ -12,7 +12,6 @@ function Button() {
 export default Button;
 
 const Holder = styled.div`
-    display: flex;
     width: 20%;
     border-radius: 2px 10px 10px 2px;
     justify-content: center;

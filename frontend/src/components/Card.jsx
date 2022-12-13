@@ -1,112 +1,122 @@
-import React from 'react';
-import styled from 'styled-components';
-import Button from './Button';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Time from './Time';
+import React from "react";
+import styled from "styled-components";
+import Button from "./Button";
+import al from './img/Image.png';
 
-function Card(props) {
-    console.log(props);
+
+function ACard(props) {
+  console.log(props);
   return (
-    <Cont>
+    <>
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          minHeight: 100,
+          marginTop: 20,
+          margin: 10,
+        }}
+      >
+        <div
+          style={{
+            width: "30%",
+            backgroundImage: `url(${al})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            width: "30%",
 
-    <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+            borderRadius: 10,
+            padding: 0,
+          }}
         >
-            <Container>
-                <Date>{props.date}</Date>
-                <Info>{props.title} by {props.club}</Info>
-                
-                
-                <Time />
-                <Button />
-            </Container>
-        </AccordionSummary>
-        <AccordionDetails>
+          <div style={{marginTop:"8px", marginLeft:"8px"}}>
+            <table
+              style={{
+                left: 10,
+                backgroundColor: "transparent",
+                border: "4px solid white",
+                borderRadius: "10px",
+                borderBlock: "4px solid white",
+                margin: 0,
+                padding:0,
+                minWidth: "40px"
+              }}
+            >
+              <tr>
+                <p
+                  style={{
+                    color: "white",
+                    borderBottom: "4px solid white",
+                    padding:0,
+                    fontSize: "10px",
+                    textAlign: "center"
+                  }}
+                >
+                  {props.date[1]}
+                </p>
+              </tr>
+              <tr style={{padding:"0px"}}>
+                <p
+                  style={{
+                    color: "white",
+                    font: "16px",
+                    fontWeight: "bolder",
+                    padding: 0,
+                    textAlign: "center",
+                    margin: "0px"
+                  }}
+                >
+                  {props.date[0]}
+                </p>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div style={{ width: "60%", padding: "20px", flexDirection: "row" }}>
+          <div style={{ position: "absolute", right: 0 }}>
+            <Button />
+          </div>
+          <p style={{ fontSize: "18px", fontWeight: "bold" }}>{props.title}</p>
+
+          <p style={{ fontSize: "18px", fontWeight: "bold", color: "grey" }}>
+            {props.club}
+          </p>
+          <p style={{ fontSize:"14px", fontWeight: "bold", color: "grey" }}>
             {props.description}
-        </AccordionDetails>
-      </Accordion>
-
-    </Cont>
-
-
-    
-  );
+          </p>
+          <p style={{ font: "24px", fontWeight: "bold", textAlign: "right" }}>
+            Venue
+          </p>
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default Card;
-
-const Cont = styled.div`
-    width: 96%;
-    margin: 2%;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-`;
+export default ACard;
 
 
-const Container = styled.div`
-    display: flex;
-    width: 100%;
-    background: white;
-    border-radius: 10px;    
-`;
-
-// const Card = styled.div`
-//     display: flex;
-//     width: 90%;
-//     margin: 2%;
-//     border: 1px solid black;
-//     border-radius: 10px;
-//     background: white;
-// `;
 
 const Date = styled.div`
-    display: flex;
-    width: 20%;
-    background: #19027d;
-    border-radius: 10px 10px 10px 10px;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    padding: 1rem;
-
+  display: flex;
+  width: 20%;
+  background: #19027d;
+  border-radius: 10px 10px 10px 10px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  padding: 1rem;
 `;
 
-const Info = styled.div`
-    display: flex;
-    width:45%;
-    justify-content: center;
-    flex-direction:horizontal;
-    padding:2%;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 500;
-`;
 
 const Description = styled.div`
-    display: flex;
-    width:45%;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: 500;
+  display: flex;
+  width: 45%;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
 `;
 
-// const Tab = styled.div`
-
-// `;
-
-{/* <Accordian >
-        <Container>
-            <Date>{props.date}</Date>
-            <Info>{props.title}</Info>
-            <Button />
-        </Container>
-        <Container>
-            Hello
-        </Container>
-    </Cont> */}
