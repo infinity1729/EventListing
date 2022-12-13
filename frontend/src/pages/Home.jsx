@@ -24,5 +24,7 @@ const Container = styled.div`
     font-family: 'Montserrat', sans-serif;
     display: flex;
     width: 100%;
+    margin-left:-0.7rem;
+    margin-top:-0.5rem;
 `;
 
