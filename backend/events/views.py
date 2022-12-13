@@ -49,6 +49,11 @@ class NewHostView(LoginRequiredMixin, CreateView):
         form.instance.updated_user = self.request.user
         return super().form_valid(form)
 
+class HostView(viewsets.ModelViewSet):
+    model = Host
+    serializer_class = HostSerializer
+    queryset = model.objects.all()     
+    
 
 # class HostUpdateView(LoginRequiredMixin, UpdateView):
 #     login_url = 'login'
