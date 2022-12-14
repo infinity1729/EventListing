@@ -66,6 +66,7 @@ function Events() {
                     title = {event.name}
                     description = {event.description}
                     club={event.host}
+                    venue={event.venue}
                 />
             );
         })};    
