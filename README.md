@@ -79,3 +79,5 @@ npm start
 For Frontend : `http://localhost:3000/`
 
 For Backend  : `http:///localhost:8000/admin/`
+APIs         : `http:///localhost:8000/api/`
+
