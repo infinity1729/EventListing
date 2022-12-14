@@ -2,9 +2,11 @@ from django.db import models
 from django.urls import reverse
 # from mapbox_location_field.models import LocationField
 from ckeditor_uploader.fields import RichTextUploadingField
+from .image import rename
 
 class Host(models.Model):
     name = models.CharField(max_length=255, primary_key=True)
+    logo = models.ImageField(upload_to=rename, blank=True)
     def __str__(self):
         return self.name
     
@@ -15,10 +17,11 @@ class Event(models.Model):
     host = models.ForeignKey(Host, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, unique=True)
     uid = models.PositiveIntegerField(primary_key=True)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(blank=True)
     venue = models.CharField(max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()
+    image = models.ImageField(upload_to=rename, blank=True)
     # location = LocationField()
     created_date = models.DateField(auto_now_add=True)
     status_choice = (
@@ -39,10 +42,10 @@ class Event(models.Model):
             obj.created_by = request.user
         obj.updated_by = request.user
         obj.save()
-class EventImage(models.Model):
+'''class EventImage(models.Model):
     event = models.OneToOneField(Event, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='event_image/')
-
+'''
 '''class EventAgenda(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     session_name = models.CharField(max_length=120)

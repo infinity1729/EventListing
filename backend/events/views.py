@@ -21,12 +21,12 @@ from .models import (
     # EventMember,
     # EventUserWishList,
     # UserCoin,
-    EventImage,
+    # EventImage,
     # EventAgenda
 
 )
 
-from .forms import EventForm, EventImageForm, EventCreateMultiForm #, EventAgendaForm
+from .forms import EventForm#, EventImageForm, EventCreateMultiForm #, EventAgendaForm
 
 #ToDo
 
@@ -76,8 +76,8 @@ def create_event(request):
     catg = Host.objects.all()
     if request.method == 'POST':
         event_form = EventForm(request.POST)
-        event_image_form = EventImageForm(request.POST, request.FILES)
-        event_agenda_form = EventAgendaForm(request.POST)
+        # event_image_form = EventImageForm(request.POST, request.FILES)
+        # event_agenda_form = EventAgendaForm(request.POST)
         if event_form.is_valid() and event_image_form.is_valid() and event_agenda_form.is_valid():
             ef = event_form.save()
             created_updated(Event, request)
@@ -96,7 +96,7 @@ def create_event(request):
         'ctg': catg
     }
     return render(request, 'events/create.html', context)
-
+'''
 class EventCreateView(LoginRequiredMixin, CreateView):
     login_url = 'login'
     form_class = EventCreateMultiForm
@@ -121,7 +121,7 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         context['ctg'] = Host.objects.all()
         return context
 
-
+'''
 class EventListView(LoginRequiredMixin, ListView):
     login_url = 'login'
     model = Event
