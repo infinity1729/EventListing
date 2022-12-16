@@ -76,10 +76,4 @@ function Events() {
 
 export default Events;
 
-const Container = styled.div`
-    
-    ${'' /* width: 70%; */}
-    ${'' /* height: 100vh; */}
-`;
-
 
