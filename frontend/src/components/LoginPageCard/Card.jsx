@@ -32,6 +32,7 @@ const Left = styled.div`
     padding: 5%;
     border-radius: 10px 0 0 10px;
     height: 40%;
+    box-shadow:-5px 0px 10px lightgrey;
 `
 
 
@@ -55,4 +56,5 @@ const Right = styled.div`
     border-radius: 0px 10px 10px 0px;
     height: 40%;
     gap:10px;
+    box-shadow:5px 0px 10px lightgrey;
 `
