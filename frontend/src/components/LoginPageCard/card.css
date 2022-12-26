@@ -1,0 +1,14 @@
+.top_left {
+    display: flex;
+    align-items: center;
+    margin-left: -60% ;
+}
+.top_left p {
+    padding-left: 10px;
+    font-weight: lighter;
+}
+.welcome {
+    line-height: 5px;
+    text-align: center;
+    font-weight: 600;
+}
