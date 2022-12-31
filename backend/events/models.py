@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 # from mapbox_location_field.models import LocationField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
 from .image import rename
 
 class Host(models.Model):
@@ -140,3 +141,17 @@ class UserCoin(models.Model):
     def get_absolute_url(self):
         return reverse('user-mark')
 '''
+
+class User_detail(models.Model):
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, unique=True)
+    email = models.CharField(max_length=255, unique=True)
+    rollno = models.CharField(max_length=255, unique=True)
+    department = models.CharField(max_length=255, unique=True)
+    join_date = models.DateField()
+    photo = models.FileField(null=True, blank=True)
+    created_date = models.DateField(auto_now_add=True)
+    
+    
+    def __str__(self):
+        return self.name
