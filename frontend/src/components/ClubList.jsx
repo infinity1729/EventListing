@@ -117,9 +117,9 @@ export default ClubList;
 
 const Container = styled.div`
     background: #1e029c;
-    height: 85vh;
     color: white;
     padding: 20px; 
+    height: 100vh;
 `;
 
 const SFormGroup = styled(FormGroup)`

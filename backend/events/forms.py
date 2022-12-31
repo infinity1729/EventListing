@@ -1,7 +1,7 @@
 from django import forms
 from betterforms.multiform import MultiModelForm
 
-from .models import Event, EventImage#, EventAgenda
+from .models import Event#, EventImage#, EventAgenda
 
 
 class EventForm(forms.ModelForm):
@@ -9,19 +9,19 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['host', 'name', 'uid', 'description', 'venue', 'start_date', 'end_date', 'status']
+        fields = ['host', 'name', 'uid', 'description', 'venue', 'start_date', 'end_date','image', 'status']
         widgets = {
             'start_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
             'end_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
 
 
-class EventImageForm(forms.ModelForm):
+# class EventImageForm(forms.ModelForm):
 
 
-    class Meta:
-        model = EventImage
-        fields = ['image']
+#     class Meta:
+#         model = EventImage
+#         fields = ['image']
 
 
 '''
@@ -37,9 +37,9 @@ class EventAgendaForm(forms.ModelForm):
             'end_time': forms.TextInput(attrs={'class': 'form-control', 'type': 'time'}),
         }
 '''
-class EventCreateMultiForm(MultiModelForm):
-    form_classes = {
-        'event': EventForm,
-        'event_image': EventImageForm,
+# class EventCreateMultiForm(MultiModelForm):
+#     form_classes = {
+#         'event': EventForm,
+#         'event_image': EventImageForm,
         
-    }
+#     }

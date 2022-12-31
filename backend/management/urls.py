@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
-from .views import dashboard, login_page, logut_page
+# from .views import dashboard, login_page, logut_page
 from . import settings
 
 import events.views as event_views
@@ -27,13 +27,14 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()                   
 router.register(r'events_api', event_views.EventView)  
+router.register(r'hosts_api', event_views.HostView)  
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dashboard, name='dashboard'),
-    path('login/', login_page, name='login'),
-    path('logout/', logut_page, name='logout'),
+    # path('', dashboard, name='dashboard'),
+    # path('login/', login_page, name='login'),
+    # path('logout/', logut_page, name='logout'),
     path('events/', include('events.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('api/', include(router.urls)),
