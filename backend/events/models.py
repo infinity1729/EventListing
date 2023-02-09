@@ -10,7 +10,7 @@ class Host(models.Model):
     logo = models.ImageField(upload_to=rename, blank=True)
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
         return reverse('host-list')
 
@@ -22,6 +22,8 @@ class Event(models.Model):
     venue = models.CharField(max_length=255)
     start_date = models.DateField()
     end_date = models.DateField()
+    start_time=models.TimeField()
+    end_time = models.TimeField()
     image = models.ImageField(upload_to=rename, blank=True)
     # location = LocationField()
     created_date = models.DateField(auto_now_add=True)
@@ -33,10 +35,10 @@ class Event(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
         return reverse('event-list')
-    
+
     def created_updated(model, request):
         obj = model.objects.latest('pk')
         if obj.created_by is None:
@@ -84,7 +86,7 @@ class EventMember(models.Model):
 
     def __str__(self):
         return str(self.user)
-    
+
     def get_absolute_url(self):
         return reverse('join-event-list')
 
@@ -110,7 +112,7 @@ class EventUserWishList(models.Model):
 
     def __str__(self):
         return str(self.event)
-    
+
     def get_absolute_url(self):
         return reverse('event-wish-list')
 
@@ -137,7 +139,7 @@ class UserCoin(models.Model):
 
     def __str__(self):
         return str(self.user)
-    
+
     def get_absolute_url(self):
         return reverse('user-mark')
 '''
@@ -151,7 +153,7 @@ class User_detail(models.Model):
     join_date = models.DateField()
     photo = models.FileField(null=True, blank=True)
     created_date = models.DateField(auto_now_add=True)
-    
-    
+
+
     def __str__(self):
         return self.name

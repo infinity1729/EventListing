@@ -9,10 +9,12 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ['host', 'name', 'uid', 'description', 'venue', 'start_date', 'end_date','image', 'status']
+        fields = ['host', 'name', 'uid', 'description', 'venue', 'start_date', 'end_date','start_time','end_time','image', 'status']
         widgets = {
-            'start_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'end_date': forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'start_date': forms.DateInput(),
+            'end_date': forms.DateInput(),
+            'start_time':forms.TimeInput(),
+            'end_time':forms.TimeInput()
         }
 
 
@@ -41,5 +43,5 @@ class EventAgendaForm(forms.ModelForm):
 #     form_classes = {
 #         'event': EventForm,
 #         'event_image': EventImageForm,
-        
+
 #     }

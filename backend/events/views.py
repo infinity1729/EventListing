@@ -52,8 +52,8 @@ class NewHostView(LoginRequiredMixin, CreateView):
 class HostView(viewsets.ModelViewSet):
     model = Host
     serializer_class = HostSerializer
-    queryset = model.objects.all()     
-    
+    queryset = model.objects.all()
+
 
 # class HostUpdateView(LoginRequiredMixin, UpdateView):
 #     login_url = 'login'
@@ -84,7 +84,7 @@ def create_event(request):
             event_image_form.save(commit=False)
             event_image_form.event_form = ef
             event_image_form.save()
-            
+
             event_agenda_form.save(commit=False)
             event_agenda_form.event_form = ef
             event_agenda_form.save()
@@ -114,10 +114,10 @@ class EventCreateView(LoginRequiredMixin, CreateView):
         event_agenda.save()
 
         return super().form_valid(form)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+
         context['ctg'] = Host.objects.all()
         return context
 
@@ -139,8 +139,8 @@ class EventUpdateView(LoginRequiredMixin, UpdateView):
 class EventView(viewsets.ModelViewSet):
     model = Event
     serializer_class = EventSerializer
-    queryset = model.objects.all()     
-    
+    queryset = model.objects.all()
+
 
 
 class EventDetailView(LoginRequiredMixin, DetailView):
